@@ -16,13 +16,14 @@ def saldo():
 def print_transactions():   
     line = 0
     summa = 0
-    output = ("\n<=>   Transaktioner   <=>\n"
+    output = ("\n<=>   Transaktioner   <=>"
               "\n{:>3} {:>12} {:>12}"
-              "\nˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉˉ").format("Nr", "Händelse", "Saldo")
+              "\n≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖").format("Nr", "Händelse", "Saldo")
     for t in transactions:
         line += 1
         summa += t
         output += ("\n{:>2}. {:>9} kr {:>9} kr".format(line, t, summa))
+    
     return output
 
 def validate_int(output, error_mess):
@@ -69,15 +70,15 @@ read_file()
 # PROGRAMLOOP
 while True:     
 #Program Meny
-    meny = (f"\n\n≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖\n"
-            "\n     ▶ B͏a͏n͏k͏ o͏f͏ J͏a͏p͏a͏n͏ ◀"
+    meny = (f"\n≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖\n"
+            "\n           ▶ B͏a͏n͏k͏ o͏f͏ J͏a͏p͏a͏n͏ ◀"
             "\n\n≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖"
             "\n\n<=> 1. Redovisa Saldo             <=>"
             "\n<=> 2. Insättning                 <=>"
             "\n<=> 3. Uttag                      <=>"
             "\n<=> 0. Avsluta/Stoppa programmet  <=>"
             "\n\n≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖≖"
-            "\n<=> Gör ditt val:                 <=>\n"
+            "\n<=> Gör ditt val:                 <=>\n\n"
             "").format(saldo())
 
 
@@ -91,7 +92,7 @@ while True:
 
     elif välj == 2:             # Sätt in pengar
         print("<=>   Insättning   <=>")
-        insättning = int(input("<=>  Ange Belopp:  <=>\n"))
+        insättning = int(input("<=>  Ange Belopp:  <=>"))
         if insättning > 0:
             add_transaction(insättning, True)
         else:
@@ -99,7 +100,7 @@ while True:
 
     elif välj == 3:             # Gör din Uttag
         print("<=>     Uttag     <=>")
-        uttag = int(input("<=>  Ange Belopp:  <=>\n"))
+        uttag = int(input("<=>  Ange Belopp:  <=>"))
         if uttag <= saldo() and uttag >= 0:
             add_transaction(-uttag, True)
         elif uttag < 0:
