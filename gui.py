@@ -38,6 +38,7 @@ def uttag():
     if uttag <= 500:
         add_transaction(-uttag, True)
 
+# Avsluta programmet & töm transaktioner filen.
 def quita():
     window.quit()
     open(filename, 'w').close()
@@ -75,34 +76,41 @@ def write_transaction_to_file(transaction):
 
 read_file()
 
-
+# Skapar ett fönster med titel och bakgrund
 
 window = Tk()
 window.title("Bank UI")
 window.configure(bg="seashell2")
 
+# Rubriken 
 
 lbl1 = Label(window, text="▶ B͏a͏n͏k͏ o͏f͏ J͏a͏p͏a͏n͏ ◀", bg="seashell2", fg="sandy brown", font="Helvetica 18 bold")
 lbl1.pack()
 
-saldolbl = Label(window, )
+# Knapp för att visa saldo
 
 saldobtn = Button(window, text="Saldo", bg="white", width=15, command=saldo)
 saldobtn.pack()
 
+# Knapp för att visa transaktioner
+
 transaktioner = Button(window, text="Transaktioner", bg="white", width=15, command=print_transactions)
 transaktioner.pack()
+
+# Knapp för insättning
 
 insättningbtn = Button(window, text="Insättning", bg="white", width=15, command=insättning)
 insättningbtn.pack()
 
+# Knapp för uttag
+
 uttagbtn = Button(window, text="Uttag", bg="white", width=15, command=uttag)
 uttagbtn.pack()
+
+# Knapp för att avsluta programmet
 
 stopbtn = Button(window, text="Avsluta Programmet", bg="white", width=15, command=quita)
 stopbtn.pack()
 
-#txt = Entry(window,width=20)
-#txt.pack()
-
+# Fönstrets mainloop
 window.mainloop()
